@@ -84,6 +84,24 @@ public class PaymentService {
         return this.account.getPayments();
     }
 
+    public String createBill(Long billNo, String type, BigDecimal amount, LocalDate dueDate, String state, String provider) {
+        Optional<Bill> billOptional = getBill(billNo);
+        if (billOptional.isEmpty()) {
+            this.account.getBillList().add(new Bill(
+                    billNo,
+                    type,
+                    amount,
+                    dueDate,
+                    state,
+                    provider
+            ));
+
+            return "Bill Added!";
+        }
+
+        return "Bill id exists";
+    }
+
     public List<Bill> searchBillByType(String type) {
         return this.account.getBillList()
                 .stream()

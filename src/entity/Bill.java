@@ -16,6 +16,15 @@ public class Bill {
 
     private LocalDate scheduledDate;
 
+    public Bill(long billNo, String type, BigDecimal amount, LocalDate dueDate, String state, String provider) {
+        this.billNo = billNo;
+        this.type = type;
+        this.amount = amount;
+        this.dueDate = dueDate;
+        this.state = state;
+        this.provider = provider;
+    }
+
     public long getBillNo() {
         return billNo;
     }

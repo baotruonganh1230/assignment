@@ -20,6 +20,8 @@ public class Main {
             System.out.println(paymentService.addFund(new BigDecimal(args[1])));
         } else if (args[0].equals( "LIST_BILL" )) {
             outputService.outputBillList(paymentService.getAllBills());
+        } else if (args[0].equals( "CREATE_BILL" )) {
+            paymentService.createBill(Long.valueOf(args[1]), args[2], new BigDecimal(args[3]), LocalDate.parse(args[4]), args[5], args[6]);
         } else if (args[0].equals( "PAY" )) {
             if (args.length > 2) {
                 List<Long> billNos = new ArrayList<>();
